@@ -1,7 +1,7 @@
----
+
 #  title: "Asymmetric metaphase anaphase model"
 rm(list=ls())
-setwd("~/Documents/GitHub/MetaAnaDynamics//R_files/MetaphaseAnaphaseAsymmetry/")
+setwd("~/Documents/GitHub/MetaAnaDynamics/R_files/MetaphaseAnaphaseAsymmetry/")
 library(rstan) 
 library(dplyr) 
 library(purrr)
@@ -36,102 +36,102 @@ K=Inf # Number of frames
 #Load the data
 ######################### #New_untrimmed Nocodazole data ######################
 dt0=1.94 
-jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking002-kitjobset_240318_All_CFAR_dt2-AI_2023-04-20_Capture4_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
+jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking002-kitjobset_240318_All_CFAR_dt2-AI_2023-04-20_Capture4_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking004-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking004-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 # dt0=2.07 
-#jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking005-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking005-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 
 # dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking006-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture9_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking006-kitjobset_240318_All_CFAR_dt2-AI_2023-04-21_Capture9_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #dt0=2.07 
-#jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking007-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture11_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking007-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture11_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking008-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture12_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking008-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture12_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking009-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking009-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #    dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking010-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture6_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking010-kitjobset_240318_All_CFAR_dt2-AI_2023-05-04_Capture6_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking013-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture11_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking013-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture11_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #  dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking014-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking014-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking015-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture2_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking015-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture2_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking016-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture4bottom_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking016-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture4bottom_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking017-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture4top_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking017-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture4top_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #  dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking018-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking018-kitjobset_240318_All_CFAR_dt2-AI_2023-05-10_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking019-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture10_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking019-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture10_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking021-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking021-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture1_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=1.94 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking022-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture2bottom_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking022-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture2bottom_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
 
 #  dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking023-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture2top_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking023-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture2top_Nocodazole_1-94sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking025-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking025-kitjobset_240318_All_CFAR_dt2-AI_2023-05-11_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #  dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking028-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking028-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture5_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking029-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture6bottom_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking029-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture6bottom_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #    dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking030-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture6top_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking030-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture6top_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #   dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking031-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking031-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture8_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 # dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking032-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture9_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking032-kitjobset_240318_All_CFAR_dt2-AI_2023-05-16_Capture9_Nocodazole_2-07sec-frames_deconvolved_5days.ome.csv")
 
 #  dt0=1.93 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking036-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture1_MC191_488Ndc80EGFP_330nM_Nocodazole_1-93sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking036-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture1_MC191_488Ndc80EGFP_330nM_Nocodazole_1-93sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 # dt0=2.09
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking037-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture4_MC191_488Ndc80EGFP_330nM_Nocodazole_2-09sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking037-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture4_MC191_488Ndc80EGFP_330nM_Nocodazole_2-09sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 # dt0=2.09
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking038-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture8_MC191_488Ndc80EGFP_330nM_Nocodazole_2-09sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking038-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture8_MC191_488Ndc80EGFP_330nM_Nocodazole_2-09sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 #dt0=2.07
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking039-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture9_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking039-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture9_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 #  dt0=2.07 #
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking041-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture3_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking041-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-17_Capture3_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 # dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking044-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-22_Capture4_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking044-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-22_Capture4_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 #   dt0=2.07 
-#  jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking045-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture2_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking045-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-03-24_Capture2_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 #  dt0=2.07 
-# jobset_str <- here::here("data/New_nocodazole_untrimmed_per_frame/kittracking046-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-04-20_Capture6_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole_untrimmed_per_frame/kittracking046-kitjobset_240318_Nocodazole_All_CFAR_dt2-AI_2023-04-20_Capture6_MC191_488Ndc80EGFP_330nM_Nocodazole_2-07sec-frames_deconvolved_5_days_sigma.ome.csv")
 
 
 ##############DMSO UNTRIMMED CFAR DATA####################################
@@ -401,7 +401,7 @@ g
 #we consider a changepoint model of anaphase onset that ignores the dynamics in metaphase, as described in Armond et al 2019 bioRxiv, https://doi.org/10.1101/582379. This model looks at the distance between a kinetochore pair. In metaphase, it assumes this is constant, and in anaphase it assumes this distance grows linearly. 
 
 #We will fit the changepoint model to the experimental data. We want to to find the minimum anaphase time point for all kt-s in the cell 
-airs_to_include = unique(data_single_pair$SisterPairID)
+pairs_to_include = unique(data_single_pair$SisterPairID)
 data_single_pair_interpolate <- process_jobset(jobset_str,K=K,max_missing=1) %>%
   filter(!is.na(SisterID)) 
 #omit unpaired KTs 
@@ -428,7 +428,7 @@ for(i in pairIDs){
                     y = y_interpolate[[which(pairIDs==i)]],
                     y_missing = y_interpolate_missing[[which(pairIDs==i)]]
   )
-  changept_estimate <- stan(file=here::here('src/stan_files/anaphase_changepoint.stan'),
+  changept_estimate <- stan(file=here::here('~/Documents/GitHub/MetaAnaDynamics/STAN_files/MetaphaseAnaphaseAsymmetry/anaphase_changepoint.stan'),
                             data=stan_input,
                             seed = 42,
                             chains =4,
@@ -458,7 +458,7 @@ for(i in pairIDs){
 }
 
 min_tana = min_tana/j   #This is the mean anaphase time from all sisters (or we could take the median. We have noticed that there are some sisters
-#with outliers anaphase times and hence minimum is not the right choice. )
+#with outliers anaphase times and hence minimum is not the right choice.)
 
 #Another way to go is to replace the outlier with the median time and then find the minimum anaphase time. 
 Mean_anaphase = data.frame("Mean_t_ana"= colMeans(df_t_ana),"SisterPairID" = as.numeric(names(df_t_ana))) #Dataframe with mean anaphase times for all sister pairs.
@@ -532,7 +532,7 @@ for(i in pairIDs){
                     sigma0 =sigma0, #initial state probabilities
                     T0 =T0, 
                     T1 = T1,cos_theta = cos_theta)
-  stan_file= here::here('src/stan_reparametrise_missing/asymmetric_metaphase_anaphase_reparametrised_missing_data.stan')
+  stan_file= here::here('~/Documents/GitHub/MetaAnaDynamics/STAN_files/MetaphaseAnaphaseAsymmetry/asymmetric_metaphase_anaphase_reparametrised_missing_data.stan')
   m <- stan_model(stan_file) 
   asymmetric_metaphase_anaphase <- sampling(m,data=stan_input,
                                             seed = 25,

@@ -122,7 +122,7 @@ process_jobset_keep_missing <- function(jobset_str, K= Inf,max_missing=0,start_f
 # input_df =  df %>% annotate_anaphase_onset_for_cell(method="manual",t_ana_frame=278)
 
 
-rough_anaphase_frame = function(jobset_str = NULL, df_1 = NULL, prop_missing){
+rough_anaphase_frame = function(jobset_str = NULL, df_1 = NULL, prop_missing = 0.25){
   library("brms") #https://bookdown.org/content/3686/jags-brms.html
   library("mcp") #https://lindeloev.github.io/mcp/
   library(bayesplot)
@@ -182,6 +182,7 @@ filter_cell_data <- function(jobset_str = NULL,df_1 = NULL, max_anaphase_frames 
     stop("Give: either the dataset or the directory of data to import")
   }
   ana_frame_r = rough_anaphase_frame(jobset_str,df_1,prop_missing_initial)
+  print(ana_frame_r)
   data_single_pair = process_jobset_keep_missing (jobset_str, K= ana_frame_r + max_anaphase_frames,max_missing=p_missing_final,start_from=0,plot_opt=0)
   return(data_single_pair)  
 }

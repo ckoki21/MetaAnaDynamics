@@ -20,6 +20,7 @@ library(loo)
 library(knitr)
 library(writexl)
 library(truncnorm)
+library(shinystan)
 
 
 rstan::rstan_options(auto_write = TRUE) #tries to avoid recompiling stan code
@@ -137,87 +138,87 @@ jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/New_nocodazole
 ##############DMSO UNTRIMMED CFAR DATA####################################
 
 #  dt0=2.58 
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking002-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture15_2-58sec-frames.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking002-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture15_2-58sec-frames.ome.csv")
 
 #  dt0=2.15
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking004-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture2_2-15sec-frames.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking004-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture2_2-15sec-frames.ome.csv")
 
 #dt0=2.58
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking006-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture9_2-15sec-frames.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking006-kitjobset_240303_All_CFAR_dt2-AI_2022-12-01_Capture9_2-15sec-frames.ome.csv")
 
 
 #  dt0=2.24
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking007-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture10_2-24sec-frames_metaphase_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking007-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture10_2-24sec-frames_metaphase_5days.ome.csv")
 
 #   dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking009-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture13_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking009-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture13_2-07sec-frames_5days.ome.csv")
 
 #  dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking010-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture15_2-07sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking010-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture15_2-07sec-frames_5days.ome.csv")
 
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking012-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture17_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking012-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture17_2-07sec-frames_5days.ome.csv")
 
 #  dt0=2.15
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking013-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture4_2-15sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking013-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture4_2-15sec-frames_5days.ome.csv")
 
 #   dt0=2.09
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking014-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture6_2-09sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking014-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture6_2-09sec-frames_5days.ome.csv")
 
 # dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking015-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture8_2-07sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking015-kitjobset_240303_All_CFAR_dt2-AI_2023-02-16_Capture8_2-07sec-frames_5days.ome.csv")
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking016-kitjobset_240303_All_CFAR_dt2-AI_2023-02-17_Capture4_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking016-kitjobset_240303_All_CFAR_dt2-AI_2023-02-17_Capture4_2-07sec-frames_5days.ome.csv")
 
 # dt0=2.07
-#  jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking017-kitjobset_240303_All_CFAR_dt2-AI_2023-02-17_Capture5_2-07sec-frames_5days.ome.csv")
+#  jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking017-kitjobset_240303_All_CFAR_dt2-AI_2023-02-17_Capture5_2-07sec-frames_5days.ome.csv")
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking018-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture1_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking018-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture1_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.58
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking019-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture4_2-58sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking019-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture4_2-58sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking020-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture5_2-07sec-frames_metaphase_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking020-kitjobset_240303_All_CFAR_dt2-AI_2023-02-22_Capture5_2-07sec-frames_metaphase_5days.ome.csv")
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking022-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture14_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking022-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture14_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking023-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture15_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking023-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture15_2-07sec-frames_5days.ome.csv")
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking024-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture1_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking024-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture1_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking025-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture4_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking025-kitjobset_240303_All_CFAR_dt2-AI_2023-02-23_Capture4_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking027-kitjobset_240303_All_CFAR_dt2-AI_2023-03-17_Capture6_DMSO_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking027-kitjobset_240303_All_CFAR_dt2-AI_2023-03-17_Capture6_DMSO_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking028-kitjobset_240303_All_CFAR_dt2-AI_2023-03-22_Capture11_DMSO_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking028-kitjobset_240303_All_CFAR_dt2-AI_2023-03-22_Capture11_DMSO_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking030-kitjobset_240303_All_CFAR_dt2-AI_2023-03-24_Capture14_DMSO_2-07sec-frames_flowdec_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking030-kitjobset_240303_All_CFAR_dt2-AI_2023-03-24_Capture14_DMSO_2-07sec-frames_flowdec_5days.ome.csv")
 
 #  dt0=2.07
-# jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking031-kitjobset_240303_All_CFAR_dt2-AI_2023-04-20_Capture10_DMSO_2-07sec-frames_5days.ome.csv")
+# jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking031-kitjobset_240303_All_CFAR_dt2-AI_2023-04-20_Capture10_DMSO_2-07sec-frames_5days.ome.csv")
 
 #dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking032-kitjobset_240303_All_CFAR_dt2-AI_2023-04-21_Capture16_DMSO_2-07sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking032-kitjobset_240303_All_CFAR_dt2-AI_2023-04-21_Capture16_DMSO_2-07sec-frames_5days.ome.csv")
 
 # dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking033-kitjobset_240303_All_CFAR_dt2-AI_2023-05-04_Capture18_DMSO_2-07sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking033-kitjobset_240303_All_CFAR_dt2-AI_2023-05-04_Capture18_DMSO_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking034-kitjobset_240303_All_CFAR_dt2-AI_2023-05-10_Capture13_DMSO_2-07sec-frames_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking034-kitjobset_240303_All_CFAR_dt2-AI_2023-05-10_Capture13_DMSO_2-07sec-frames_5days.ome.csv")
 
 #   dt0=2.07
-#jobset_str <- here::here("data/DMSO_data_CFAR_per_frame/kittracking035-kitjobset_240303_All_CFAR_dt2-AI_2023-05-11_Capture22_DMSO_2-07sec-frames_flowdec_5days.ome.csv")
+#jobset_str <- here::here("~/Documents/GitHub/MetaAnaDynamics/data/DMSO_data_CFAR_per_frame/kittracking035-kitjobset_240303_All_CFAR_dt2-AI_2023-05-11_Capture22_DMSO_2-07sec-frames_flowdec_5days.ome.csv")
 
 
 #Read the cell-trajectories. keep the ones with no more than 25% missing data

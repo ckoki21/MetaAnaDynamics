@@ -43,7 +43,9 @@ sister_t_ana<-0
 anaphase_times<-matrix(0,2,length(pairIDs))
 
 j<-1
-changept_estimate_m <- stan_model(file='src/anaphase_changepoint.stan', model_name = "anaphase_changepoint_model")
+changept_estimate_m <-
+  stan_model(file='~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/anaphase_changepoint.stan', model_name = "anaphase_changepoint_model")
+
 for(i in pairIDs){
   stan_input = list(dt=dt0, T=K,
                     nTracks = 1,
@@ -121,16 +123,16 @@ Marginal_likelihoods_bridge <- data.frame(SisterPairID=integer(length(pairIDs)),
                                           v_plus_tau=double(length(pairIDs)),
                                           v_minus_plus_tau=double(length(pairIDs)))
 
-constant_m <- stan_model('src/metaphase_symmetric_full_likelihood_missing.stan', model_name = "constant_model")
-alpha_m <- stan_model('src/time_dependent_alpha.stan', model_name = "alpha_model")
-kappa_m <- stan_model('src/time_dependent_kappa.stan', model_name = "kappa_model")
-v_minus_m <- stan_model('src/time_dependent_v_minus.stan', model_name = "v_minus_model")
-v_plus_m <- stan_model('src/time_dependent_v_plus.stan', model_name = "v_plus_model")
-v_minus_plus_m <- stan_model('src/time_dependent_v_both.stan', model_name = "v_minus_plus_model")
-tau_m <- stan_model('src/time_dependent_tau.stan', model_name = "tau_model")
-v_minus_tau_m <- stan_model('src/time_dependent_v_minus_tau.stan', model_name = "v_minus_tau_model")
-v_plus_tau_m <- stan_model('src/time_dependent_v_plus_tau.stan', model_name = "v_plus_tau_model")
-v_minus_plus_tau_m <- stan_model('src/time_dependent_v_both_tau.stan', model_name = "v_minus_plus_tau_model")
+constant_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/metaphase_symmetric_full_likelihood_missing.stan', model_name = "constant_model")
+alpha_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_alpha.stan', model_name = "alpha_model")
+kappa_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_kappa.stan', model_name = "kappa_model")
+v_minus_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_minus.stan', model_name = "v_minus_model")
+v_plus_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_plus.stan', model_name = "v_plus_model")
+v_minus_plus_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_both.stan', model_name = "v_minus_plus_model")
+tau_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_tau.stan', model_name = "tau_model")
+v_minus_tau_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_minus_tau.stan', model_name = "v_minus_tau_model")
+v_plus_tau_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_plus_tau.stan', model_name = "v_plus_tau_model")
+v_minus_plus_tau_m <- stan_model('~/Documents/GitHub/MetaAnaDynamics/STAN_files/TimeDependent/time_dependent_v_both_tau.stan', model_name = "v_minus_plus_tau_model")
 
 j=1
 for(i in pairIDs){
